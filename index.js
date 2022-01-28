@@ -1,9 +1,8 @@
-let win = false;
-let turn = 0;
-let cellsLeft = 9;
+let win = false;//is the game won yet
+let turn = 0;//turn counter
+let cellsLeft = 9;//how many cells are left
 
-
-//Game
+//Main Game
 displayTurn();
 $('#reset').on('click',function(){restartGame();});
 
@@ -19,9 +18,9 @@ $('.cell').on('click',function(){
         }
         displayTurn();
     }
-
 });
 
+//Display and change whose turn it is
 function displayTurn(){
     let turnhead = $('#turn-header');
     if(turn%2 === 0){//player x turn
@@ -32,10 +31,9 @@ function displayTurn(){
     }
 }
 
+//Display the Symbol on the tile played depending whose turn it is
 function insertSymbol(element,symbol){
     element.innerHTML = symbol;
-
-
     const winner = checkWinConditions(element);
     turn++;
     cellsLeft--;
@@ -44,22 +42,22 @@ function insertSymbol(element,symbol){
     }
 }
 
+//shows the winner after determining that the game is over
 function showWinner(winner){
     if (!win && cellsLeft === 0){
-        window.alert(`GAME OVER!\nIt's a draw!
-        `)
+        window.alert(`GAME OVER!\nIt's a draw!`);
     }
     else if(winner === 'X'){
         window.alert(`GAME OVER!\nX wins!`);
         // $('#game-end').removeClass('hidden');
         // $('#game-end').append('<alert>GAME OVER! X wins!</alert>');
     }
-    else //(winner === 'O'){
-        window.alert(`GAME OVER!\nO wins!`)
-
+    else {//(winner === 'O'){
+        window.alert(`GAME OVER!\nO wins!`);
+    }
 }
 
-
+//restart the game and set everything back up to the beginning
 function restartGame(){
     turn = 0;
     cellsLeft = 9;
@@ -70,9 +68,8 @@ function restartGame(){
     $('#game-end').text('');
 }
 
+//check each row, column, and diagonal to see if there is a winning row
 function checkWinConditions(element){
-
-    
     //find row and column based on id name to make deciding if winner easier
     const row = element.id[4];
     const column = element.id[5];

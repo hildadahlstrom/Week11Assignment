@@ -9,15 +9,17 @@
     <link rel = "stylesheet" href="styles.css">
 </head>
 <body >
-    
     <!-- Header == TIC TAC TOE -->
-    <h1 id = "title">TIC-TAC-TOE</h1>
+    <div class = "container center">
+        <h1 id = "title">TIC-TAC-TOE</h1>
+    </div>
     <!-- Header for whose turn it is -->
-    <h3 id = "turn-header"> </h3><br>
-
-    <!-- Some sort of grid for tic-tac-toe -->
-    <div id = "game-screen" class = "center hidden container">
-        <table class = "table table-bordered center">
+    <div class = "container">
+        <h3 id = "turn-header"> </h3><br>
+    </div>
+    <!-- Grid for tic-tac-toe -->
+    <div id = "game-screen" class = "container">
+        <table class = "table">
             <tr class = "row-1">
                 <td>
                     <button type = "button" class = "cell" id = "cell00"></button>
@@ -51,15 +53,13 @@
                     <button type = "button" class = "cell" id = "cell22"></button>
                 </td>
             </tr>
-
         </table> 
-
-
-        <br>
-
+    </div>
+    <br>
+    <!-- Reset Button -->
+    <div class = "container">
         <button type = "button" id = "reset">RESET</button>
     </div>
-
 
     <script src = "node_modules/jquery/dist/jquery.js"></script>
     <script src = "node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>

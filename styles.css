@@ -1,26 +1,13 @@
-
-/* Grid */
-/* .col-3{
-    width:25vw;
-    height:20vw;
-    max-width:150px;
-    max-height:120px;
-
-    /* text-align:center; */
-/*} */
-
 table{
-  width:85vw;
-  height:85vw;
-  max-width:420px;
-  max-height:420px;
-
-  /* text-align:center; */
-}
+  width:90vw;
+  height:90vw;
+  max-width:500px;
+  max-height:500px;
+ } 
 
 button.cell {
     cursor: pointer;  /* Visually show that you can interact with the button */
-    border: none;  /* Hides default border (and color, for some reason */
+    border: none;  /* Hides default border*/
     background-color: pink;
     height:100%;
     width:100%;
@@ -31,4 +18,8 @@ button.cell {
 
 button:hover{
    background-color:lightcoral; 
+}
+
+table{
+  background:cadetblue;
 }
