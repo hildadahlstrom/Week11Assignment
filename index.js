@@ -39,21 +39,26 @@ function insertSymbol(element,symbol){
     const winner = checkWinConditions(element);
     turn++;
     cellsLeft--;
-    setTimeout(() => {
-        if(win && winner === 'X'){
-            window.alert(`GAME OVER!\nX wins!`);
-            // $('#game-end').removeClass('hidden');
-            // $('#game-end').append('<alert>GAME OVER! X wins!</alert>');
-        }
-        else if(win && winner === 'O'){
-            window.alert(`GAME OVER!\nO wins!`)
-        }
-        else if (!win && cellsLeft === 0){
-            window.alert(`GAME OVER!\nIt's a draw!
-            `)
-        }
-    },50);
+    if(win || cellsLeft === 0){
+    setTimeout(() => (showWinner(winner)),50);
+    }
 }
+
+function showWinner(winner){
+    if (!win && cellsLeft === 0){
+        window.alert(`GAME OVER!\nIt's a draw!
+        `)
+    }
+    else if(winner === 'X'){
+        window.alert(`GAME OVER!\nX wins!`);
+        // $('#game-end').removeClass('hidden');
+        // $('#game-end').append('<alert>GAME OVER! X wins!</alert>');
+    }
+    else //(winner === 'O'){
+        window.alert(`GAME OVER!\nO wins!`)
+
+}
+
 
 function restartGame(){
     turn = 0;
@@ -66,7 +71,7 @@ function restartGame(){
 }
 
 function checkWinConditions(element){
-    debugger;
+
     
     //find row and column based on id name to make deciding if winner easier
     const row = element.id[4];
